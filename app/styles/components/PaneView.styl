@@ -1,0 +1,58 @@
+.primary-panel-axis {
+  flex-grow: 1;
+  z-index: z(main-pane-view);
+}
+
+.panel-axis, .pane-axis {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.panel-container, .pane-container {
+  flex-basis: 0;
+  flex-grow: 1;
+  overflow: scroll;
+  position: relative;
+  border-width: 1px;
+  border-style: solid;
+  &:last-child {
+    border: 0;
+    > .resize-bar {
+      display: none;
+    }
+  }
+  &.row {
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 0;
+    margin: 0;
+  }
+  &.column {
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+  }
+}
+
+.panel, .pane {
+  height: 100%;
+  width: 100%;
+}
+
+.resize-bar {
+  z-index: z(pane-resize-bar);
+  &.col-resize {
+    cursor: col-resize;
+    absolute(right 0 top 0 bottom 0);
+    height: 100%;
+    width: 4px;
+  }
+  &.row-resize {
+    cursor: row-resize;
+    absolute(bottom 0 left 0 right 0);
+    width: 100%;
+    height: 4px;
+  }
+}
